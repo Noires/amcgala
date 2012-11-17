@@ -14,8 +14,6 @@
  */
 package org.amcgala.framework.shape.textured;
 
-import java.awt.Color;
-
 import org.amcgala.framework.math.Vector3d;
 import org.amcgala.framework.renderer.Renderer;
 import org.amcgala.framework.shape.TexturedAbstractShape;
@@ -45,14 +43,6 @@ public class TexturedBox extends TexturedAbstractShape {
 		this.height = height;
 		this.depth = depth;
 		this.position = position;
-	}
-	
-	/**
-	 * Gibt die Farbe des entsprechenden Pixels auf Basis der Textur zurueck. 
-	 * @return
-	 */
-	private Color getPixelColor() {
-		return null;
 	}
 	
 	public void render(Renderer renderer) {

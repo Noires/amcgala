@@ -20,18 +20,23 @@ import org.amcgala.framework.texture.Texture;
  * Abstrakte Texturklasse das von allen texturierten Objekten erweitert wird.
  * @author Sascha Lemke
  */
-public class TexturedAbstractShape extends AbstractShape implements Texture {
+public class TexturedAbstractShape extends AbstractShape {
 
 	protected Texture texture;
 	
-	@Override
+	/**
+	 * Setzt die Textur fuer das aktuelle Shapeobjekt.
+	 * @param texture die neue Textur
+	 */
 	public void setTexture(Texture texture) {
 		this.texture = texture;
 	}
 
-	@Override
+	/**
+	 * Gibt die aktuelle Textur des Shapeobjekts zurueck.
+	 * @return die aktuelle Textur des Objekts
+	 */
 	public Texture getTexture() {
 		return texture;
 	}
-
 }
