@@ -46,6 +46,7 @@ public class Triangle extends AbstractShape {
 
     /**
      * Ob das Polygon gefüllt oder im Wireframe-Modus gezeichnet werden soll.
+     *
      * @param fill true, wenn Polygon gefüllt werden soll
      */
     public void fill(boolean fill) {
@@ -54,9 +55,10 @@ public class Triangle extends AbstractShape {
 
     /**
      * Berechnet die Scan Lines, mit denen das Dreieck auf dem Bildschirm im Software Modus gefüllt werden kann.
+     *
      * @return die Liste der Scan Lines
      */
-    protected List<Line> scanline(){
+    protected List<Line> scanline() {
         // TODO ScanLine Algorithmus implementieren.
         throw new NotImplementedException();
     }
@@ -65,6 +67,8 @@ public class Triangle extends AbstractShape {
     @Override
     public DisplayList getDisplayList() {
         DisplayList displayList = new DisplayList();
+        // Füllen des Dreiecks ist abhängig von der Implementierung.
+        // OpenGL macht das automatisch, bei Software muss selbst gefüllt werden.
         if (fill) {
             if (Framework.currentMode == FrameworkMode.GL) {
                 TrianglePrimitive trianglePrimitive = new TrianglePrimitive(a, b, c);
@@ -72,11 +76,10 @@ public class Triangle extends AbstractShape {
                 displayList.triangles.add(trianglePrimitive);
             } else if (Framework.currentMode == FrameworkMode.SOFTWARE) {
                 List<Line> scanLines = scanline();
-                for(Line l : scanLines){
+                for (Line l : scanLines) {
                     displayList.add(l.getDisplayList());
                 }
             }
-
         } else {
             LinePrimitive l1 = new LinePrimitive(a, b);
             LinePrimitive l2 = new LinePrimitive(b, c);
